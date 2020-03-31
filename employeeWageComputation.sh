@@ -14,9 +14,9 @@ totalWorkingHours=0
 
 function getEmployeeHours() {
 	case $1 in
-	$IS_FULL_TIME)
-		empHours=8
-         ;;
+		$IS_FULLL_TIME
+			empHours=8
+			;;
       $IS_PART_TIME)
          empHours=4
          ;;
