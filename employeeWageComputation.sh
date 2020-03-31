@@ -1,6 +1,6 @@
 #! /bin/bash -x
 
-#Program to findout and store workingHours and total salary of Employee
+#Program to findout total salary of Employee till reache 100 hours and 20 days 
 #Declaration of Array
 declare -a empDailyWage
 
@@ -31,7 +31,7 @@ function getWorkingHours() {
    echo $empHours
 }
 
-#Function to calculate daily wage
+#Function to calculate daily wage of Employee
 function getDailyWage() {
 	local workHours=$1
 	wageOfDay=$(($workHours * $EMPLOYEE_RATE_PER_HOUR))
@@ -44,11 +44,13 @@ function employeeWageComputation () {
 	do
    	(( totalWorkingDays++))
     	workHours="$( getWorkingHours $(( RANDOM%3)) )"
-    	totalWorkingHours=$(($totalWorkingHours+$workHours)) 										  #Calculate here total Employee hours
-	 	empDailyWage[$totalWorkingDays]="$( getDailyWage $workHours )"
+		totalWorkingHours=$(($totalWorkingHours+$workHours))
+		empDailyWage[$totalWorkingDays]="$( getDailyWage $workHours )"
 	done
-totalSalary=$(($totalWorkingHours * $EMPLOYEE_RATE_PER_HOUR))									  #Calculate total salary here
-echo "Daily Wage: " ${empDailyWage[@]}
+totalSalary=$(($totalWorkingHours * $EMPLOYEE_RATE_PER_HOUR))
+echo "Day:           " ${!empDailyWage[@]}
+echo "Daily Wage:    " ${empDailyWage[@]}
+echo "Total salary:  " $totalSalary
 }
 
 #First function of the program to check hours and days reached 100 and 20 resp
