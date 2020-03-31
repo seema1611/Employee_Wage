@@ -44,10 +44,10 @@ function employeeWageComputation () {
 	do
    	(( totalWorkingDays++))
     	workHours="$( getWorkingHours $(( RANDOM%3)) )"
-    	totalWorkingHours=$(($totalWorkingHours+$workHours)) 										  #Calculate here total Employee hours
-	 	empDailyWage[$totalWorkingDays]="$( getDailyWage $workHours )"
+    	totalWorkingHours=$(($totalWorkingHours+$workHours)) 										 rs
+	empDailyWage[$totalWorkingDays]="$( getDailyWage $workHours )"
 	done
-totalSalary=$(($totalWorkingHours * $EMPLOYEE_RATE_PER_HOUR))									  #Calculate total salary here
+totalSalary=$(($totalWorkingHours * $EMPLOYEE_RATE_PER_HOUR))
 echo "Daily Wage: " ${empDailyWage[@]}
 }
 
