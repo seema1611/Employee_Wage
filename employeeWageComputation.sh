@@ -1,18 +1,21 @@
 #!/bin/bash -x
 
-#Program to Check Employee is Present Or Not
+#Program to findout daily Employee wage with partTime And FullTime
 #Constants
 EMPLOYEE_RATE_PER_HOUR=20
+IS_FULL_TIME=2
+IS_PART_TIME=1
 
-isPresent=1                            			#Assign 1 to Employee is Present
-randomCheck=$((RANDOM % 2 ))            			#Find Random here
-if [ $isPresent -eq $randomCheck ]     			#Condition check here
+isPresent=1
+randomCheck=$((RANDOM % 3 ))
+if [ $IS_FULL_TIME -eq $randomCheck ]
 then
-	echo "Employee is Present"
 	empHours=8
-else
-	echo "Employee is Absent"
+elif [ $IS_PART_TIME -eq $randomCheck ]
+then
 	empHours=4
+else
+	empHours=0
 fi
 dailyEmpWage=$(($empHours * $EMPLOYEE_RATE_PER_HOUR ))
 echo $dailyEmpWage
