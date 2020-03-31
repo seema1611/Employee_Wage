@@ -1,14 +1,17 @@
-#!/bin/bash -x
+#!/bin/bash -x 
 
-#Program to findout daily Employee wage using switch case
+#Program to findout Employee Wage For A Month
 #Constants
 EMPLOYEE_RATE_PER_HOUR=20
 IS_FULL_TIME=2
 IS_PART_TIME=1
+WORKING_DAYS_PER_MONTH=20
 
-isPresent=1
-randomCheck=$((RANDOM % 3 ))
-case $randomCheck in
+totalSalary=0
+for (( day=1; day<=WORKING_DAYS_PER_MONTH; day++ ))
+do
+	randomCheck=$((RANDOM % 3 ))
+	case $randomCheck in
 		$IS_FULL_TIME)
 			empHours=8
 			;;
@@ -18,6 +21,8 @@ case $randomCheck in
 		*)
 			empHours=0
 			;;
-esac
-dailyEmpWage=$(($empHours * $EMPLOYEE_RATE_PER_HOUR ))
-echo $dailyEmpWage
+	esac
+	salary=$(($empHours * $EMPLOYEE_RATE_PER_HOUR ))
+	totalSalary=$(($totalSalary + $salary ))
+	echo $totalSalary
+done
