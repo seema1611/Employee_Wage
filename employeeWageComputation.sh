@@ -42,8 +42,8 @@ function getDailyWage() {
 function employeeWageComputation () {
 	while [[ $totalWorkingHours -lt $WORKING_HOURS_PER_MONTH && $totalWorkingDays -lt $WORKING_DAYS_PER_MONTH ]]
 	do
-   	(( totalWorkingDays++))
-    	workHours="$( getWorkingHours $(( RANDOM%3)) )"
+   		(( totalWorkingDays++))
+    		workHours="$( getWorkingHours $(( RANDOM%3)) )"
 		totalWorkingHours=$(($totalWorkingHours+$workHours))
 		empDailyWage[$totalWorkingDays]="$( getDailyWage $workHours )"
 	done
