@@ -13,18 +13,19 @@ totalWorkingDays=0
 totalWorkingHours=0
 
 function getEmployeeHours() {
-	case $1 in
-		$IS_FULLL_TIME
-			empHours=8
-			;;
+   case $1 in
+      $IS_FULL_TIME)
+         empHours=8
+         ;;
       $IS_PART_TIME)
          empHours=4
          ;;
-		*)
+       *)
          empHours=0
-         ;;
-	esac
-	echo $empHours
+          ;;
+   esac
+   echo $empHours
+
 }
 
 while [[ $totalWorkingDays -lt $WORKING_DAYS_PER_MONTH && $totalWorkingHours -lt $WORKING_HOURS_PER_MONTH ]]
